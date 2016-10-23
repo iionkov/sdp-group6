@@ -10,39 +10,39 @@ using namespace std;
 template <typename T = int>
 struct elem_q
 { 
-	T inf; // информационна част
-	elem_q<T>* link; // адресна част
+	T inf; 
+	elem_q<T>* link; 
 };
 
 template <typename T = int>
 class queue
 { 
 	public:
-		// канонично представяне
+		
 		queue();
 		~queue();
 		queue(const queue&);
 		queue& operator=(const queue&);
 		
-		// основни функции
+		
 		bool empty() const;
 		void push(const T&);
 		void pop(T&);
 		void head(T&) const;
 		
-		// променят опашката
+		
 		void print();
 		int length();
 
 	private:
-		elem_q<T> *front, // указател към началото
-				  *rear; // указател към края
-		// помощни функции
+		elem_q<T> *front, 
+				  *rear; 
+		
 		void copyQueue(const queue&);
 		void deleteQueue();
 };
 
-// канонично представяне
+
 template <typename T>
 queue<T>::queue()
 { 
