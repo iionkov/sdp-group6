@@ -9,36 +9,36 @@ using namespace std;
 template <typename T>
 struct elem
 { 
-	T inf; // èíôîðìàöèîííà ÷àñò
-	elem<T>* link; // àäðåñíà ÷àñò
+	T inf; 
+	elem<T>* link; 
 };
 
 template <typename T = int>
 class stack
 {
 	public:
-		// êàíîíè÷íî ïðåäñòàâÿíå
+		
 		stack();
 		~stack();
 		stack(const stack&);
 		stack& operator=(const stack&);
-		// îñíîâíè îïåðàöèè
+		
 		bool empty() const;
 		void push(const T&);
 		void pop(T&);
 		void top(T&) const;
 
-		// ïðîìåíÿò ñòåêà
+		
 		void print();
 		int length();
 	
 	private:
-		elem<T> *start; // óêàçàòåë êúì âúðõà íà ñòåêà
+		elem<T> *start; 
 		void copyStack(const stack&);
 		void delStack();
 };
 
-// êàíîíè÷íî ïðåäñòàâÿíå íà øàáëîíà íà êëàñà
+
 template <typename T>
 stack<T>::stack()
 {
@@ -68,7 +68,7 @@ stack<T>& stack<T>::operator=(const stack<T>& r)
 	return *this;
 }
 
-// ïîìîùíà ÷ëåí-ôóíêöèÿ, êîÿòî êîïèðà r â íåÿâíèÿ ñòåê
+
 template <typename T>
 void stack<T>::copyStack(const stack<T>& r)
 {
@@ -97,7 +97,7 @@ void stack<T>::copyStack(const stack<T>& r)
 	else start = NULL;
 }
 
-// ïîìîùíà ÷ëåí-ôóíêöèÿ, êîÿòî èçòðèâà íåÿâíèÿ ñòåê
+
 template <typename T>
 void stack<T>::delStack()
 {
@@ -110,14 +110,14 @@ void stack<T>::delStack()
 	}
 }
 
-// ïðîâåðÿâà äàëè íåÿâíèÿò ñòåê å ïðàçåí
+
 template <typename T>
 bool stack<T>::empty() const
 {
 	return start == NULL;
 }
 
-// âêëþ÷âà s â íåÿâíèÿ ñòåê
+
 template <typename T>
 void stack<T>::push(const T& s)
 {
@@ -128,9 +128,7 @@ void stack<T>::push(const T& s)
 	start->link = p;
 }
 
-// èçêëþ÷âà åëåìåíò îò íåÿâíèÿ ñòåê è ãî çàïèñâà
-// â ïàðàìåòúðà s
-// îïåðàöèÿòà å âúçìîæíà, àêî íåÿâíèÿò ñòåê íå å ïðàçåí
+
 template <typename T>
 void stack<T>::pop(T& s)
 {
@@ -148,8 +146,7 @@ void stack<T>::pop(T& s)
 	}
 }
 
-// íàìèðà âúðõà íà íåÿâíèÿ ñòåê è ãî çàïèñâà â ïàðàìåòúðà s
-// îïåðàöèÿòà å âúçìîæíà, àêî íåÿâíèÿò ñòåê íå å ïðàçåí
+
 template <typename T>
 void stack<T>::top(T& s)const
 {
@@ -162,11 +159,7 @@ void stack<T>::top(T& s)const
 	}
 }
 
-// èçâåæäà íà åêðàíà åëåìåíòèòå íà íåÿâíèÿ ñòåê
-// ïðåäïîëàãà, ÷å çà åëåìåíòèòå îò òèï Ò å
-// äåôèíèðàí îïåðàòîðúò <<
-// ñëåä çàâúðøâàíå íà èçïúëíåíèåòî íà ôóíêöèÿòà,
-// íåÿâíèÿò ñòåê ñòàâà ïðàçåí
+
 template <typename T>
 void stack<T>::print()
 {
@@ -179,9 +172,7 @@ void stack<T>::print()
 	cout << endl;
 }
 
-// íàìèðà áðîÿ íà åëåìåíòèòå íà íåÿâíèÿ ñòåê
-// ñëåä çàâúðøâàíå íà èçïúëíåíèåòî íà ôóíêöèÿòà,
-// íåÿâíèÿò ñòåê ñòàâà ïðàçåí
+
 template <typename T>
 int stack<T>::length()
 {
